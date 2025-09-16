@@ -7,32 +7,26 @@ class OnboardingContent extends StatelessWidget {
 
   final String text, image;
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          'assets/images/logo.png',
-          fit: BoxFit.cover,
-          ), 
-          Spacer(),
-          Text(
-            "owala",
-            style: TextStyle(
-              color: primaryColor,
-              fontSize: getProporsionateScreenWidth(36),//buat menjadi adaptif
-              fontWeight: FontWeight.bold
-            ),
+        Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+        Spacer(),
+        Text(
+          "Owala",
+          style: TextStyle(
+            color: primaryColor,
+            fontSize: getProporsionateScreenWidth(36), //buat menjadi adaptif
+            fontWeight: FontWeight.bold
           ),
-          SizedBox(height: 15),
-          Text(
-            text,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.amber
-            ),
-          )
+        ),
+        SizedBox(height: 15),
+        Text(text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: textColor
+        ))
       ],
     );
   }

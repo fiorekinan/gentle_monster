@@ -39,5 +39,5 @@ double getProporsionateScreenHeight(double inputHeight) {
 
 double getProporsionateScreenWidth(double inputWidth) {
   double screenwidth = SizeConfig.screenWidth;
-  return (inputWidth / 812.0) * screenwidth;
+  return (inputWidth / 375.0) * screenwidth;
 }

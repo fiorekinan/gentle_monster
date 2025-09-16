@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/utils/const.dart';
+import 'package:owala_app/views/auth/login_screen.dart';
 import 'package:owala_app/views/onboarding/onboarding_screen.dart';
 
 void main(List<String> args) {
@@ -27,8 +28,14 @@ class _OwalaAppState extends State<OwalaApp> {
           bodyMedium: TextStyle(color: textColor),
           bodySmall: TextStyle(color: textColor),
         ),
+        scaffoldBackgroundColor: Colors.white
       ),
-      home: OnboardingScreen(),
+      //initial route: untuk mendefinisikan kelas apa yang pertama kali tampil saat aplikasi dijalankan
+      initialRoute: '/login',
+      routes: {
+        '/onboarding' : (context) => OnboardingScreen(),
+        '/login' : (context) => LoginScreen(),
+      },
     );
   }
 }
