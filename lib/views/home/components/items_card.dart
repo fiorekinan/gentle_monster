@@ -15,18 +15,16 @@ class ItemsCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(defaultPadding),
-              decoration: BoxDecoration(
-                color: product.color,
-                borderRadius: BorderRadius.circular(16)
-              ),
-              child: Hero(
-                tag: "${product.id}",
-                child: Image.asset(product.image)
-                ),
+          Container(
+            padding: EdgeInsets.all(defaultPadding),
+            decoration: BoxDecoration(
+              color: product.color,
+              borderRadius: BorderRadius.circular(16)
             ),
+            child: Hero(
+              tag: "${product.id}",
+              child: Image.asset(product.image)
+              ),
           ),
           SizedBox(height: 5),
           Text(

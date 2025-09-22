@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:owala_app/detail/detail_screen.dart';
+import 'package:owala_app/models/products_model.dart';
 import 'package:owala_app/utils/const.dart';
 import 'package:owala_app/views/auth/login_screen.dart';
 import 'package:owala_app/views/auth/register_screen.dart';
@@ -39,6 +41,10 @@ class _OwalaAppState extends State<OwalaApp> {
         '/login' : (context) => LoginScreen(),
         '/register' : (context) => RegisterScreen(),
         '/catalogue' : (context) => CatalogueScreen(),
+        '/detail' : (context) => DetailScreen(
+          //ModalRoute adalah class yang wajib dipanggil ketika akan melakukan navigasi 
+          product: ModalRoute.of(context)!.settings.arguments as ProductsModel,
+        ),
       },
     );
   }
