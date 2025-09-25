@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/utils/const.dart';
+import 'package:gentle_monster_app/utils/const.dart';
 
 class BannerSlider extends StatelessWidget {
   const BannerSlider({super.key});

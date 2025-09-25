@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/views/home/components/wishlist_manager.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/views/home/components/wishlist_manager.dart';
 
 class FavButton extends StatefulWidget {
   final ProductsModel product;

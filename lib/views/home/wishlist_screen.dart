@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/views/home/catalogue_screen.dart';
-import 'package:owala_app/views/home/components/app_bar_title.dart';
-import 'package:owala_app/views/home/components/bottom_nav_bar.dart';
-import 'package:owala_app/views/home/components/items_card.dart';
-import 'package:owala_app/views/home/components/wishlist_manager.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/views/home/catalogue_screen.dart';
+import 'package:gentle_monster_app/views/home/components/app_bar_title.dart';
+import 'package:gentle_monster_app/views/home/components/bottom_nav_bar.dart';
+import 'package:gentle_monster_app/views/home/components/items_card.dart';
+import 'package:gentle_monster_app/views/home/components/wishlist_manager.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});

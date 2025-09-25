@@ -1,4 +1,4 @@
-import 'package:owala_app/models/onboarding_model.dart';
+import 'package:gentle_monster_app/models/onboarding_model.dart';
 
 final String assetsPath = "assets/images/gm_logo.png";
 

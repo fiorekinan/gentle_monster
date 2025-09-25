@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/data/products_data.dart';
-import 'package:owala_app/utils/const.dart';
-import 'package:owala_app/views/home/components/items_card.dart';
+import 'package:gentle_monster_app/data/products_data.dart';
+import 'package:gentle_monster_app/utils/const.dart';
+import 'package:gentle_monster_app/views/home/components/items_card.dart';
 
 class DrinkwareGrid extends StatelessWidget {
   const DrinkwareGrid({super.key});

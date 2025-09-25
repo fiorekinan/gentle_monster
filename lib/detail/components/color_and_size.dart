@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/detail/components/color_picker.dart';
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
+import 'package:gentle_monster_app/detail/components/color_picker.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/utils/const.dart';
 
 class ColorAndSize extends StatelessWidget {
   final ProductsModel product;
@@ -34,7 +34,6 @@ class ColorAndSize extends StatelessWidget {
 
         const SizedBox(height: defaultPadding),
 
-        // ===== SPECS =====
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

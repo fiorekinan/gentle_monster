@@ -1,4 +1,4 @@
-import 'package:owala_app/models/products_model.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
 
 class WishlistManager {
   static final List<ProductsModel> _wishlist = [];

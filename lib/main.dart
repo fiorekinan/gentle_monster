@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/detail/detail_screen.dart';
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
-import 'package:owala_app/views/auth/login_screen.dart';
-import 'package:owala_app/views/auth/register_screen.dart';
-import 'package:owala_app/views/home/catalogue_screen.dart';
-import 'package:owala_app/views/home/main_screen.dart';
-import 'package:owala_app/views/home/wishlist_screen.dart';
-import 'package:owala_app/views/onboarding/onboarding_screen.dart';
+import 'package:gentle_monster_app/detail/detail_screen.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/utils/const.dart';
+import 'package:gentle_monster_app/views/auth/login_screen.dart';
+import 'package:gentle_monster_app/views/auth/register_screen.dart';
+import 'package:gentle_monster_app/views/home/catalogue_screen.dart';
+import 'package:gentle_monster_app/views/home/main_screen.dart';
+import 'package:gentle_monster_app/views/home/wishlist_screen.dart';
+import 'package:gentle_monster_app/views/onboarding/onboarding_screen.dart';
 
 void main(List<String> args) {
-  runApp(OwalaApp());
+  runApp(GentleMonsterApp());
 }
 
-class OwalaApp extends StatefulWidget {
-  const OwalaApp({super.key});
+class GentleMonsterApp extends StatefulWidget {
+  const GentleMonsterApp ({super.key});
 
   @override
-  State<OwalaApp> createState() => _OwalaAppState();
+  State<GentleMonsterApp> createState() => _GentleMonsterState();
 }
 
-class _OwalaAppState extends State<OwalaApp> {
+class _GentleMonsterState extends State<GentleMonsterApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
   debugShowCheckedModeBanner: false,
-  title: "Owala App",
+  title: "Gentle Monster",
   theme: ThemeData(
     fontFamily: 'Sf Pro Display',
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -35,7 +35,7 @@ class _OwalaAppState extends State<OwalaApp> {
     ),
     scaffoldBackgroundColor: Colors.white,
   ),
-  initialRoute: '/onboarding',
+  initialRoute: '/catalogue',
   routes: {
     '/onboarding': (context) => OnboardingScreen(),
     '/login': (context) => LoginScreen(),

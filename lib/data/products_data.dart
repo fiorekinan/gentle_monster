@@ -1,5 +1,5 @@
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/utils/const.dart';
 
 final List<ProductsModel> products = [
   ProductsModel(

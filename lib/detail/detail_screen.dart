@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/detail/components/add_to_cart.dart';
-import 'package:owala_app/detail/components/color_and_size.dart';
-import 'package:owala_app/detail/components/fav_button.dart';
-import 'package:owala_app/models/products_model.dart';
+import 'package:gentle_monster_app/detail/components/add_to_cart.dart';
+import 'package:gentle_monster_app/detail/components/color_and_size.dart';
+import 'package:gentle_monster_app/detail/components/fav_button.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
 
 class DetailScreen extends StatelessWidget {
   final ProductsModel product;
@@ -12,7 +12,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    int quantity = 1; // default quantity
+    int quantity = 1;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),

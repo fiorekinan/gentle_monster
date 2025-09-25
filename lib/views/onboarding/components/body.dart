@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/data/onboarding_data.dart';
-import 'package:owala_app/utils/const.dart';
-import 'package:owala_app/views/onboarding/components/boarding_content.dart';
+import 'package:gentle_monster_app/data/onboarding_data.dart';
+import 'package:gentle_monster_app/utils/const.dart';
+import 'package:gentle_monster_app/views/onboarding/components/boarding_content.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});

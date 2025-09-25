@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/detail/components/fav_button.dart';
-import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
+import 'package:gentle_monster_app/detail/components/fav_button.dart';
+import 'package:gentle_monster_app/models/products_model.dart';
+import 'package:gentle_monster_app/utils/const.dart';
 
 class ItemsCard extends StatelessWidget {
   final ProductsModel product;

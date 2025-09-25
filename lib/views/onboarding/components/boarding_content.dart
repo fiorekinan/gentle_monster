@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/utils/size_config.dart';
+import 'package:gentle_monster_app/utils/size_config.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({
@@ -20,7 +20,6 @@ class OnboardingContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 100),
-          // The main heading text
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
