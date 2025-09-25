@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 
 // A primary color definition
-const primaryColor = Color(0xFF236A91);
+const primaryColor = Colors.black;
 const primaryLightColor = Color(0xFFFFECDF);
-const primaryGradietColor = LinearGradient(
-  colors: [
-    Color(0xFFFFA53E),
-    Color(0xFFFF7643),
-  ]);
 
 // A secondary color definition
 const secondaryColor = Color(0xFF979797);
+const productColor = Color(0xFFF3F4F6);
 const textColor = Color(0xFF757575);
-const textColorDarkMOde =  Color(0xFFE0E0E0);
+const titleColor =  Colors.black;
 
 // animationDuration time definition
 const animationDuration = Duration(milliseconds: 200); //best practicenya 200-400

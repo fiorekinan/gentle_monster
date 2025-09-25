@@ -6,11 +6,19 @@ class AuthFormField extends StatelessWidget {
   final String? hintText;
   final bool obscureText;
   final Widget? suffixIcon;
-  final String? Function(String?) ? validator;
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
 
-  const AuthFormField({super.key, required this.controller, required this.label, this.hintText, this.obscureText = false, this.suffixIcon, this.validator, this.keyboardType});
-
+  const AuthFormField({
+    super.key,
+    required this.controller,
+    required this.label,
+    this.hintText,
+    this.obscureText = false,
+    this.suffixIcon,
+    this.validator,
+    this.keyboardType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +27,12 @@ class AuthFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextFormField(
           controller: controller,
           obscureText: obscureText,
@@ -32,12 +40,15 @@ class AuthFormField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hintText,
             suffixIcon: suffixIcon,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8)
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black54),
+            ),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black, width: 1.5),
             ),
           ),
           validator: validator,
-        )
+        ),
       ],
     );
   }

@@ -5,10 +5,11 @@ class AuthButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color textColor;
   final Color backgroundColor;
+  final TextStyle? textStyle;
   final Widget? icon;
 
 
-  const AuthButton({super.key, required this.text, required this.onPressed, required this.textColor, required this.backgroundColor, this.icon});
+  const AuthButton({super.key, required this.text, required this.onPressed, required this.textColor, required this.backgroundColor, this.icon, this.textStyle,});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,9 @@ class AuthButton extends StatelessWidget {
           ? BorderSide(color: Colors.grey)
           : null,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        )
+          borderRadius: BorderRadius.circular(50),
+        ),
+        textStyle: textStyle,
       ),
     );
   }

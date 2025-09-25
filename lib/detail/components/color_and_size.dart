@@ -10,54 +10,75 @@ class ColorAndSize extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Column(
-            children: [
-              Text("Color", style: TextStyle(color: textColor)),
-              Row(
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  //todo menampilkan color picker
-                  ColorPicker(color: Color(0xFF90B4C6), isSelected: true),
-                  ColorPicker(color: Color(0xFFFCEABF), isSelected: false),
-                  ColorPicker(color: Color(0xFF989493), isSelected: false),
+                  Row(
+                    children: const [
+                      ColorPicker(color: Color.fromARGB(255, 0, 0, 0), isSelected: true),
+                      ColorPicker(color: Color(0xFFAEB89F), isSelected: false),
+                      ColorPicker(color: Color(0xFF82848A), isSelected: false),
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
+          ],
+        ),
+
+        const SizedBox(height: defaultPadding),
+
+        // ===== SPECS =====
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildSpec("Height", "${product.height} cm"),
+            _buildDivider(),
+            _buildSpec("Width", "${product.width} cm"),
+            _buildDivider(),
+            _buildSpec("Material", product.material)
+          ],
+        ),
+      ],
+    );
+  }
+
+  static Widget _buildSpec(String title, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "$title:",
+          style: const TextStyle(
+            fontSize: 18,
+            color: Colors.black,
+            fontWeight: FontWeight.w500
           ),
         ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Size",
-                style: TextStyle(
-                  color: textColor
-                ),
-              ),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    color: textColor
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "${product.size}oz",
-                      style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontWeight: FontWeight.bold)
-                    )
-                  ]
-                )
-                ),
-            ],
-          )
-          )
+        const SizedBox(height: 2),
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
+    );
+  }
+
+  static Widget _buildDivider() {
+    return Container(
+      height: 30,
+      width: 1,
+      color: Colors.black26,
     );
   }
 }

@@ -24,7 +24,7 @@ class SocialAuthButton extends StatelessWidget {
           color: backgroundColor == Colors.white ? Colors.grey : Colors.transparent
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8)
+          borderRadius: BorderRadius.circular(50)
         )
       ),
     );

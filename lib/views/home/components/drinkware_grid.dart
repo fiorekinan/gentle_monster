@@ -15,7 +15,8 @@ class DrinkwareGrid extends StatelessWidget {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisExtent: defaultPadding,
+          // TODO: ini yang bikin error, fio manggilnya mainAxisExtent
+          mainAxisSpacing: defaultPadding,
           crossAxisSpacing: defaultPadding,
           childAspectRatio: 0.75
           ),

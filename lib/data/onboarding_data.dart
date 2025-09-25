@@ -1,19 +1,19 @@
 import 'package:owala_app/models/onboarding_model.dart';
 
-final String assetsPath = "/assets/images/drinkware/SmoothSip_TelescopeTales.png";
+final String assetsPath = "assets/images/gm_logo.png";
 
 
 List<OnboardingModel>  onboardingData = [
   OnboardingModel(
     image: assetsPath,
-    text: "Welcome to Owala – The water bottle \nthat transforms the way you stay hydrated",
+    text: "Embracing the future with every lens",
   ),
   OnboardingModel(
     image: assetsPath,
-    text: "Stylish & Eco-Friendly Design. \nStay hydrated in style while caring for our planet",
+    text: "A bold statement for a vision of tomorrow",
   ),
   OnboardingModel(
     image: assetsPath,
-    text: "Ready to start your hydration journey? \nLet’s explore our products!",
+    text: "Dare to be bold. Wear Gentle Monster",
   ),
 ];

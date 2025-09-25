@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:owala_app/utils/const.dart';
+import 'package:owala_app/views/home/components/app_bar_title.dart';
 
 class CatalogueAppBar extends StatelessWidget implements PreferredSizeWidget {
-
   const CatalogueAppBar({super.key});
 
   @override
@@ -10,44 +9,30 @@ class CatalogueAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
-      title: Padding(
-        padding: EdgeInsets.only(left: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Location",
-              style: TextStyle(
-                color: textColor,
-                fontSize: 14
-              ),
-            ),
-            Text(
-              "Jakarta, Indonesia",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black
-                ),
-            )
-          ],
+      title: const AppBarTitle(screenType: "catalogue"), 
+      titleSpacing: 0,
+      toolbarHeight: 100,
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.shopping_cart_outlined,
+            color: Colors.black,
+          ),
         ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.notifications_none,
+            color: Colors.black,
+          ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {}, 
-            icon: Icon(Icons.shopping_cart_outlined, color: Colors.black,)
-            ),
-          IconButton(
-            onPressed: () {}, 
-            icon: Icon(Icons.notifications_none, color: Colors.black,)
-            ),
-        ],
+      ],
     );
   }
-  //default syntax kalau ingin mengambil ukuran dari sebuah widget
-  //yang mengimplement size widget
+
   @override
-    Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(100);
 }

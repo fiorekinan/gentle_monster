@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ProductsModel {
-  final String image, title, description;
+  final String image, title, material;
   final int price;
-  final int size;
   final int id;
+  final double height;
+  final double width; 
   final Color color;
 
   ProductsModel({
     required this.image,
     required this.title,
-    required this.description,
     required this.price,
-    required this.size,
+    required this.height,
+    required this.width,
+    required this.material,
     required this.id,
     required this.color,
   });

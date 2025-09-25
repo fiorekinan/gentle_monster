@@ -16,33 +16,17 @@ class AddToCart extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(right: defaultPadding),
-            height: 50,
-            width: 54,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: product.color)
-            ),
-            child: IconButton(
-              icon: Icon(Icons.add_shopping_cart_outlined),
-              onPressed: () {
-                // TODO 1: Menambahkan product ke halaman keranjang
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: 
-                    Text("Succsessfully added ${product.title}"),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-              },
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: product.color),
             ),
           ),
           Expanded(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: product.color,
-                maximumSize: Size.fromHeight(50),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(18)
+                backgroundColor: Colors.black,
+                minimumSize: Size.fromHeight(50),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(30)
                 ),
               ),
               onPressed: () {
@@ -56,10 +40,11 @@ class AddToCart extends StatelessWidget {
                 );
               },
                child: Text(
-                "BUY NOW",
+                "Add To Cart",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: textColor
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: 20
                 ),
               ),
             ),

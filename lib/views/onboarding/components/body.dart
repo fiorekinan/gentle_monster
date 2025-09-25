@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:owala_app/data/onboarding_data.dart';
 import 'package:owala_app/utils/const.dart';
 import 'package:owala_app/views/onboarding/components/boarding_content.dart';
-import 'package:owala_app/views/onboarding/onboarding_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -22,13 +21,10 @@ class _BodyState extends State<Body> {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 10,
               child: PageView.builder(
                 controller: _pageController,
                 onPageChanged: (value) {
-                  //maksud dari kode ini adalah untuk memberitahu
-                  //setiap kali ada perubahan di satu objek atau halaman yang
-                  //di trigger oleh adanya interaksi dari pengguna
                   setState(() {
                     currentPage = value;
                   });
@@ -50,28 +46,37 @@ class _BodyState extends State<Body> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
+                    minimumSize: const Size(double.infinity, 55),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                   ),
                   onPressed: () {
-                   if (currentPage == onboardingData.length - 1 ) {
-                     Navigator.pushNamed(context, '/login');
-                   } else {
-                     _pageController.animateToPage(
-                      currentPage + 1,
-                      duration: animationDuration,
-                      curve: Curves.ease
-                     );
-                   }
+                    if (currentPage == onboardingData.length - 1) {
+                      Navigator.pushNamed(context, '/login');
+                    } else {
+                      _pageController.animateToPage(
+                        currentPage + 1,
+                        duration: animationDuration,
+                        curve: Curves.ease,
+                      );
+                    }
                   },
-                  // currentPage == 3 - 1 ?
                   child: Text(
-                    currentPage == onboardingData.length - 1 ? "Get Started" : "Next",
-                    style: TextStyle(color: Colors.white),
+                    currentPage == onboardingData.length - 1
+                        ? "Get Started"
+                        : "Continue",
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -84,7 +89,7 @@ class _BodyState extends State<Body> {
 
   AnimatedContainer _dotsIndicator({required int index}) {
     return AnimatedContainer(
-      margin: EdgeInsets.only(right: 10),
+      margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: currentPage == index ? primaryColor : secondaryColor,

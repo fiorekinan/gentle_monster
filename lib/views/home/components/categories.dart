@@ -9,10 +9,10 @@ class Categories extends StatefulWidget {
 }
 
 List<Map<String, dynamic>> categories = [
-  {"icon": Icons.local_drink, "text": "Drinkware"},
-  {"icon": Icons.color_lens, "text": "Color Drop"},
-  {"icon": Icons.card_giftcard, "text": "Bundles"},
-  {"icon": Icons.accessibility, "text": "Accesories"},
+  {"icon": "assets/images/glasses.png", "text": "Glasses"},
+  {"icon": "assets/images/sunglasses.png", "text": "Sunglasses"},
+  {"icon": "assets/images/charms.png", "text": "Charms"},
+  {"icon": "assets/images/gifts.png", "text": "Gifts"},
 ];
 
 int selectedIndex = 0;
@@ -21,37 +21,38 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 23),
+      padding: const EdgeInsets.symmetric(horizontal: 23),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
-              Text(
+              const Text(
                 "Categories",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: textColor,
+                  color: Colors.black,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {},
                 child: Text(
                   "View All",
                   style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    decorationThickness: 0.8,
                     color: primaryColor,
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding),
           SizedBox(
-            height: 65,
+            height: 100, //kasih height biar ga overflow
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
@@ -70,33 +71,42 @@ class _CategoriesState extends State<Categories> {
           selectedIndex = index;
         });
       },
-      child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: defaultPadding),
+      child: Container(
+        width: 80, // dikasih width biar sejajar
+        margin: const EdgeInsets.symmetric(horizontal: 7),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.all(10), //kurangi padding agar lebih kecil
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: selectedIndex == index ? primaryColor.withValues(alpha: 0.2) : Colors.grey.withValues(alpha: 0.0), //pake withValues buat atur opacity
+                color: productColor,
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                categories[index]["icon"],
-                color: selectedIndex == index ? primaryColor : secondaryColor,
-                size: 20,
-              ),
+              child: categories[index]["icon"] is IconData
+                  ? Icon(
+                      categories[index]["icon"],
+                      color: selectedIndex == index
+                          ? primaryColor
+                          : secondaryColor,
+                      size: 22,
+                    )
+                  : Image.asset(
+                      categories[index]["icon"],
+                      width: 50,
+                      height: 50,
+                    ),
             ),
-            SizedBox(height: 7),
+            const SizedBox(height: 6),
             Text(
               categories[index]["text"],
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: selectedIndex == index ? primaryColor : secondaryColor,
-                fontWeight: selectedIndex == index
-                    ? FontWeight.bold
-                    : FontWeight.normal,
+                fontWeight: FontWeight.bold,
                 fontSize: 12,
               ),
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

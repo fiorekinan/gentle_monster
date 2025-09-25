@@ -14,11 +14,9 @@ class ColorPicker extends StatelessWidget {
         top: defaultPadding,
         right: defaultPadding
       ),
-      //jarak dari color picker ke text color
       padding: EdgeInsets.all(1.5),
-      width: 20,
-      height: 20,
-      //modifikasi untuk border dari color picker
+      width: 45,
+      height: 45,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(

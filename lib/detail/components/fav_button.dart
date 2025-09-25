@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/models/products_model.dart';
+import 'package:owala_app/views/home/components/wishlist_manager.dart';
 
-class FavButton extends StatelessWidget {
+class FavButton extends StatefulWidget {
   final ProductsModel product;
 
   const FavButton({super.key, required this.product});
 
   @override
+  State<FavButton> createState() => _FavButtonState();
+}
+
+class _FavButtonState extends State<FavButton> {
+  @override
   Widget build(BuildContext context) {
-    bool isFavorite;
+    bool isFavorite = WishlistManager.isFavorite(widget.product);
 
     return IconButton(
-        onPressed: () {
-          if (isFavorite = true) {
-            //to do dari provider untuk memutuskan dia warna apa dan masuk kemana
-          } else {
-            //todo masukkan kode untuk logika menambahkan item wishlist
-          }
-        },
-        icon: Icon(
-          Icons.favorite,
-          color: Colors.red,
-        ),
-      );
+      onPressed: () {
+        setState(() {
+          WishlistManager.toggleProduct(widget.product);
+        });
+      },
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: isFavorite ? Colors.red : Colors.grey,
+        size: 30,
+      ),
+    );
   }
 }

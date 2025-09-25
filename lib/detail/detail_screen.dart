@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:owala_app/detail/components/add_to_cart.dart';
 import 'package:owala_app/detail/components/color_and_size.dart';
-import 'package:owala_app/detail/components/description.dart';
 import 'package:owala_app/detail/components/fav_button.dart';
-import 'package:owala_app/detail/components/product_title.dart';
 import 'package:owala_app/models/products_model.dart';
-import 'package:owala_app/utils/const.dart';
 
 class DetailScreen extends StatelessWidget {
   final ProductsModel product;
@@ -14,83 +11,95 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int quantity = 1;
-    final Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
+    int quantity = 1; // default quantity
 
     return Scaffold(
-      backgroundColor: product.color,
-      appBar: AppBar(
-        backgroundColor: product.color,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: textColor,
+      backgroundColor: const Color(0xFFF4F4F4),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Colors.black),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.search, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.shopping_cart_outlined,
+                          color: Colors.black),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ],
             ),
-            onPressed: () {},
           ),
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-              color: textColor,
+          Expanded(
+            child: Center(
+              child: Image.asset(
+                product.image,
+                fit: BoxFit.contain,
+                height: size.height * 0.5,
+              ),
             ),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: size.height,
-              child: Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: size.height * 0.38), //adjust margin to make space for the image 
-                    padding: EdgeInsets.only(
-                      top: defaultPadding,
-                      left: 25,
-                      right: defaultPadding
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      )
-                    ),
-                    child: Column(
+          ),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 50),
-                        ColorAndSize(product: product),
-                        SizedBox(height: defaultPadding),
-                        Description(product: product),
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            FavButton(product: product)
-                          ],
+                        Text(
+                          product.title,
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                        SizedBox(height: 20),
-                        AddToCart(product: product, quantity: quantity)
+                        Text(
+                          product.getFormattedPrice(),
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
-                  //widget yang berguna ketika kita perlu mengatur tata letak widget saat menggunakan stack
-                  Positioned(
-                    top: size.height * 0.03,
-                    left: defaultPadding,
-                    right: 1,
-                    child: ProductTitle(product: product),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                    FavButton(product: product),
+                  ],
+                ),
+                const SizedBox(height: 2),
+                ColorAndSize(product: product),
+                const SizedBox(height: 20),
+                AddToCart(product: product, quantity: quantity),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

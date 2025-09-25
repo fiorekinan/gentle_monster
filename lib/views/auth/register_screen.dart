@@ -21,19 +21,21 @@ class RegisterScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 60),
+            SizedBox(height: 30),
+            Image.asset('assets/images/gm_logo.png', height: 60, width: 250),
+            SizedBox(height: 30),
             Text(
               "Register",
               style: TextStyle(
-                color: textColor,
-                fontSize: 32,
+                color: Colors.black,
+                fontSize: 50,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 2),
             Text(
               "Please create an account to continue",
-              style: TextStyle(fontSize: 16, color: textColor),
+              style: TextStyle(fontSize: 16, color: Colors.black),
             ),
             SizedBox(height: 30),
             Form(
@@ -43,23 +45,23 @@ class RegisterScreen extends StatelessWidget {
                 children: [
                   AuthFormField(
                     controller: _nameController,
-                    label: "Full Name",
-                    hintText: "Enter your fullname",
+                    label: "",
+                    hintText: "Fullname",
                     validator: Validators.validateFullname,
                   ),
                   SizedBox(height: 20),
                   AuthFormField(
                     controller: _emailController,
-                    label: "Email",
-                    hintText: "Enter your email",
+                    label: "",
+                    hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
                     validator: Validators.validateEmail,
                   ),
                   SizedBox(height: 20),
                   AuthFormField(
                     controller: _passwordController,
-                    label: "Password",
-                    hintText: "Enter your password",
+                    label: "",
+                    hintText: "Password",
                     obscureText: true,
                     suffixIcon: Icon(Icons.visibility),
                     validator: Validators.validatePassword,
@@ -67,8 +69,8 @@ class RegisterScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   AuthFormField(
                     controller: _confirmPasswordController,
-                    label: "Confirm Password",
-                    hintText: "Confirm your password",
+                    label: "",
+                    hintText: "Confirm Password",
                     obscureText: true,
                     suffixIcon: Icon(Icons.visibility),
                     validator: (value) => Validators.validateConfirmPassword(
@@ -86,23 +88,24 @@ class RegisterScreen extends StatelessWidget {
                     },
                     backgroundColor: primaryColor,
                     textColor: Colors.white,
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have an account?",
-                          style: TextStyle(
-                            color: textColor,
-                          ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an account?",
+                        style: TextStyle(color: textColor),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pushNamed(context, '/login'),
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(color: Colors.black),
                         ),
-                        TextButton(
-                          onPressed: () => Navigator.pushNamed(context, '/login'),
-                          child: Text("Sign In"),
-                          )
-                      ],
-                    )
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
